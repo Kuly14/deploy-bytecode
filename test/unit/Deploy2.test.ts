@@ -18,6 +18,8 @@ describe("Box tests", () => {
     const num = await box.get();
     expect(num.toString()).to.eq("10");
 
+    expect((await box.x()).toString()).to.eq("10");
+
     const tx = await box.store("100");
     await tx.wait();
     expect((await box.get()).toString()).to.eq("100");
